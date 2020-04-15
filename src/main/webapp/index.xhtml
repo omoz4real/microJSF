@@ -10,7 +10,7 @@
         <style type="text/css">
             
             .customer{
-                width: 500px;
+                width: 600px;
                 margin: 20px auto;
             }
         </style>
@@ -40,18 +40,6 @@
                 <p:column headerText="Course">
                     <h:outputText value="#{c.course}" />
                 </p:column>
-
-
-
-
-                <!--                <p:column>
-                                    <p:link outcome="customer?id=#{c.id}">View Customer</p:link>
-                                </p:column>-->
-                <!--                <p:column>
-                                    <p:commandButton value="Details"  action="customer">
-                                        <f:setPropertyActionListener target="#{clientService.customers.id}" value="#{c.id}"/>
-                                    </p:commandButton>
-                                </p:column>-->
 
                 <p:column>
                     <h:commandLink action="#{clientService.showDetails(c)}" value="Manage"/><br/>
