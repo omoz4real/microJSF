@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>omos.microsystems</groupId>
+    <artifactId>microjsf</artifactId>
+    <version>1.0</version>
+    <packaging>war</packaging>
+    <name>microjsf-1.0</name>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>8.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>6.2</version>
+        </dependency>  
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>fish.payara.maven.plugins</groupId>
+                <artifactId>payara-micro-maven-plugin</artifactId>
+                <version>1.0.5</version>
+                <configuration>
+                    <payaraVersion>${version.payara}</payaraVersion>
+                    <deployWar>false</deployWar>
+                    <commandLineOptions>
+                        <option>
+                            <key>--autoBindHttp</key>
+                        </option>
+                        <option>
+                            <key>--deploy</key>
+                            <value>${project.build.directory}/${project.build.finalName}</value>
+                        </option>
+                    </commandLineOptions>
+                    <!--                    <contextRoot>""</contextRoot>-->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
